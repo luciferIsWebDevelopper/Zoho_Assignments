@@ -1,0 +1,72 @@
+package Assignment.ClassAndObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class MainMovie{
+    public static void main(String[] args)  throws ParseException{
+    SimpleDateFormat  simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date today= simpleDateFormat.parse(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+    Movie movie= new Movie();
+    movie.setMovieName("3025");
+    movie.setNoOfActors(1000);
+    movie.setHeroName("Guru samy");
+    movie.setHeroineName("Samantha");
+    movie.setDirector("Raja Mouli");
+    movie.setGenere("Action/Thriller");
+    movie.setProducer("Hubble Films");
+    movie.setBudget(500);
+    movie.setReleaseDate(simpleDateFormat.parse("2025-04-09"));
+    System.out.println("Movie Name: "+movie.getMovieName());
+    System.out.println("Hero Name: "+movie.getHeroName());
+    System.out.println("Heroine Name: "+movie.getHeroineName());
+    System.out.println("Movie Budget: "+movie.getBudget());
+    System.out.println("Director: "+movie.getDirector());
+    System.out.println("Producer: "+movie.getProducer());
+    System.out.println("Movie Genere: "+movie.getGenere());
+    System.out.println("No Of Actors: "+movie.getNoOfActors());
+    System.out.println("Movie Release Date: "+movie.getReleaseDate());
+    movie.isMovieReleased(today.compareTo(movie.getReleaseDate()));
+    Movie movie1= new Movie();
+    movie1.setMovieName("The Ramantic Iceland");
+    movie1.setNoOfActors(10);
+    movie1.setHeroName("Raj Kiran");
+    movie1.setHeroineName("Kirthy suresh");
+    movie1.setDirector("Vetri Maaran");
+    movie1.setGenere("Romance");
+    movie1.setProducer("Vishal Film Factory");
+    movie1.setBudget(5000);
+    movie1.setReleaseDate(simpleDateFormat.parse("2024-04-09"));
+    System.out.println("Movie Name: "+movie1.getMovieName());
+    System.out.println("Hero Name: "+movie1.getHeroName());
+    System.out.println("Heroine Name: "+movie1.getHeroineName());
+    System.out.println("Movie Budget: "+movie1.getBudget());
+    System.out.println("Director: "+movie1.getDirector());
+    System.out.println("Producer: "+movie1.getProducer());
+    System.out.println("Movie Genere: "+movie1.getGenere());
+    System.out.println("No Of Actors: "+movie1.getNoOfActors());
+    System.out.println("Movie Release Date: "+movie1.getReleaseDate());
+    movie1.isMovieReleased(today.compareTo(movie1.getReleaseDate()));
+    Movie movie2= new Movie();
+    movie2.setMovieName("Jana nayagan");
+    movie2.setNoOfActors(1500);
+    movie2.setHeroName("Vijay");
+    movie2.setHeroineName("Mamitha");
+    movie2.setDirector("H Vinoth");
+    movie2.setGenere("Politics");
+    movie2.setProducer("AGS Interational");
+    movie2.setBudget(600);
+    movie2.setReleaseDate(simpleDateFormat.parse("2025-03-12"));
+    System.out.println("Movie Name: "+movie2.getMovieName());
+    System.out.println("Hero Name: "+movie2.getHeroName());
+    System.out.println("Heroine Name: "+movie2.getHeroineName());
+    System.out.println("Movie Budget: "+movie2.getBudget());
+    System.out.println("Director: "+movie2.getDirector());
+    System.out.println("Producer: "+movie2.getProducer());
+    System.out.println("Movie Genere: "+movie2.getGenere());
+    System.out.println("No Of Actors: "+movie2.getNoOfActors());
+    System.out.println("Movie Release Date: "+movie2.getReleaseDate());
+    movie2.isMovieReleased(today.compareTo(movie2.getReleaseDate()));
+    }
+}
