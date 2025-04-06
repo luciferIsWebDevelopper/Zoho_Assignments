@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Manager</title>
+    <style>
+        /* .expence-edit, */
+        .expence-edit button{
+            background-color: green;
+            border: 0cap;
+            width: 100px;
+            height: 50px;
+            border-radius: 5%;
+            margin: 5%;
+        }
+        .expence-delete button{
+            background-color: red;
+            border: 0cap;
+            width: 100px;
+            height: 50px;
+            border-radius: 5%;
+        }
+        #expence-list,
+        #expence-list td {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100vw;
+            text-align: center;
+            background-color: lightgrey;
+            font-size: x-large;
+            overflow: hidden;
+            border-radius: 1%;
+        }
+        #Edit,#original{
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            /* Remove quotes */
+            height: 300px;
+            /* Remove quotes */
+            margin: 0 auto;
+            /* Remove quotes */
+            border: 1px solid black;
+            /* Remove quotes */
+            background-color: gray;
+            position: relative;
+            top: 30%;
+            /* Remove quotes */
+            left: 35%;
+            /* Remove quotes */
+            object-fit: cover;
+            box-sizing: border-box;
+            text-align: center;
+            /* Align text in the center */
+            line-height: 300px;
+            /* Center text vertically */
+            border-radius: 10%;
+            animation-duration: 2s;
+            z-index: 2;
+        }
+        #original{
+            display: inline-flex;
+        }
+        #update {
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            z-index: 1;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="update"></div>
+    <h1>Personal Finance Manager</h1>
+    <div>
+        <h2>Total Expence: <span id="total-expence">76</span></h2>
+    </div>
+    <div id="Edit"> </div>
+    <div id="original">
+        <input type="number" id="expence" placeholder="Enter Expence">
+        <input type="text" id="expence-description-value" placeholder="Enter Expence Description">
+        <button onclick="addExpence(event)">Add Expence</button>
+    </div>
+    <table id="expence-list" border="1">
+        <tr>
+            <th>Expence</th>
+            <th>Description</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        <tr>
+            <td class="expence-price">76</td>
+            <td class="expence-description">jil jang jak</td>
+            <td class="expence-edit"><button onclick=EditItem(event)>Edit</button></td>
+            <td class="expence-delete"><button onclick=removeItem(event)>Delete</button></td>
+        </tr>
+    </table>
+    <script>
+        var expence = document.getElementById("expence");
+        var expenceDescription = document.getElementById("expence-description-value");
+        var expenceList = document.getElementById("expence-list")
+        var totalExpence = document.getElementById("total-expence")
+        var update = document.getElementById("update");
+        var original=document.getElementById("original")
+        var modal = document.getElementById("Edit");
+        function update1(event) {
+            expence.value = event.target.value
+        }
+        function update2(event) {
+            expenceDescription.value = event.target.value
+        }
+        function addExpence(event) {
+            if (expence.value == "" |
+                expenceDescription.value == "") {
+                alert("Please Enter All the Credentials")
+                return;
+            }
+            original.style.display = "inline-flex"
+            var expenceData = document.createElement("tr");
+            expenceData.innerHTML = `<td class='expence-price'>${expence.value}</td>` + `<td class="expence-description">${expenceDescription.value}</td>` + "<td class='expence-edit'><button onclick='EditItem(event)'>Edit</button></td>" + "<td class='expence-delete'><button onclick='removeItem(event)'>Delete</button></td>";
+            expenceList.append(expenceData)
+            totalExpence.textContent = Number(totalExpence.textContent) + Number(expence.value)
+            expence.value = ""
+            expenceDescription.value = ""
+            modal.style.display = "none"
+            update.style.display = "none"
+        }
+        function removeItem(event) {
+            // event.target.closest("tr").remove();
+            let row = event.target.parentElement.parentElement;
+            var price = row.querySelector(".expence-price").textContent;
+            totalExpence.textContent = Number(totalExpence.textContent) - Number(price);
+            event.target.parentElement.parentElement.remove();
+        }
+        function EditItem(event) {
+            update.style.display = "block"
+            let row = event.target.parentElement.parentElement;
+            var price = row.querySelector(".expence-price").textContent;
+            let description = row.querySelector(".expence-description").textContent;
+            modal.innerHTML = `<input type="number" id="expence" placeholder="Enter Expence" onkeyup="update1(event)" onmouseover="update1(event)" value=${price}>` +
+                `<input type="text" id="expence-description-value" placeholder="Enter Expence Description" onkeyup="update2(event)" onmouseover="update2(event)" value=${description}>`
+                + `<button onclick="addExpence(event)">Update Expence</button>`
+            modal.style.display = "inline-flex"
+            totalExpence.textContent = Number(totalExpence.textContent) - Number(price);
+            row.remove()
+            original.style.display="none"
+            // console.log(modal)
+            // console.log(price,description);
+        }
+        // function updateExpence(event){
+        //     modal.style.display="none"
+        //     update.style.display="none"
+        //     price=expence.value
+        //     totalExpence.textContent=Number(totalExpence.textContent)+Number(expence.value);
+        //     expence.value=""
+        //     // console.log(event.target.parentElement.innerHTML);
+        // }
+    </script>
+</body>
+
+</html>
