@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sprites</title>
+    <style>
+        * {
+            text-align: justify;
+        }
+
+        .container {
+            margin: 140px auto;
+            margin-bottom: 10px;
+            border: 1px solid lightgray;
+            width: 78vw;
+            border-radius: 5px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: white;
+            border: 1px solid lightgray;
+            margin: 10px 10px;
+            gap: 10px;
+        }
+
+        .products>div {
+            /* width: 20px; */
+            height: 250px;
+            /* background-color: rgb(209, 233, 240); */
+            border: 1px solid lightblue;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .products h1 {
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .zoho-mail {
+            background-image: url(./image.png);
+            background-position: -185px -690px;
+            width: 93px;
+            height: 92px;
+        }
+
+        .zoho-desk {
+            background-image: url(./image.png);
+            background-position: -185px -468px;
+            width: 93px;
+            height: 92px;
+        }
+
+        .zoho-connect {
+            background-image: url(./image.png);
+            background-position: -370px -246px;
+            width: 100px;
+            height: 99px;
+        }
+
+        .zoho-projects {
+            background-image: url(./image.png);
+            background-position: -750px -695px;
+            width: 103px;
+            height: 85px;
+        }
+        a{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="products">
+            <div onclick="window.open(`https://www.zoho.com/mail/?ireft=nhome&src=all-products-phome`)">
+                <div class="zoho-mail"></div>
+                <h1>Mail</h1>
+                <p></p>
+                <p>Secure Email for teams for sizes</p>
+                <p></p>
+                <h3><a href="">TRY NOW ></a></h3>
+            </div>
+            <div onclick="window.open(`https://www.zoho.com/en-in/desk/?ireft=nhome&src=all-products-phome`)">
+                <div class="zoho-desk"></div>
+                <h1>Desk</h1>
+                <p></p>
+                <p>Help Desk software to deliver great customer support</p>
+                <p></p>
+                <h3><a href="">TRY NOW ></a></h3>
+            </div>
+            <div onclick="window.open(`https://www.zoho.com/connect/?ireft=nhome&src=all-products-phome`)">
+                <div class="zoho-connect"></div>
+                <h1>Connect</h1>
+                <p></p>
+                <p>Team Collaboration software that brings people together</p>
+                <p></p>
+                <h3><a href="">TRY NOW ></a></h3>
+            </div>
+            <div onclick="window.open(`https://www.zoho.com/connect/?ireft=nhome&src=all-products-phome`)">
+                <div class="zoho-projects"></div>
+                <h1>Connect</h1>
+                <p></p>
+                <p>Manage Tasks, And Collaborate on projects with teams</p>
+                <p></p>
+                <h3><a href="">TRY NOW ></a></h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
